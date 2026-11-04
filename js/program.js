@@ -124,4 +124,7 @@ const PEOPLE = [
   ["dr n. farm.", "Przemysław Dalkowski", "Nowe rozwiązania w terapii ran", "2", ""],
   ["lek.", "Mariusz Zwal", "Osteointegracja", "2", ""],
   ["", "Adam Krasowski", "Akcja defibrylacja", "2", ""],
+  ["", "Patrycja Czarny", "Nestlé", "1", ""],
+  ["", "Ewa Osuch", "Baxter", "1", ""],
+  ["", "Ewa Dreszer", "Fresenius – żywienie immunomodulujące", "1", ""],
 ];
