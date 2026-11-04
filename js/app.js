@@ -140,5 +140,30 @@ function heroNetwork() {
   frame();
 }
 
+function heroPhotos() {
+  const slots = [...document.querySelectorAll(".hp")];
+  if (!slots.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const src = (n) => `img/2025/${String(n).padStart(2, "0")}.jpg`;
+  const shown = [2, 5, 12];
+  const queue = Array.from({ length: 16 }, (_, i) => i + 1).filter((n) => !shown.includes(n));
+  let slot = 0;
+
+  setInterval(() => {
+    if (document.hidden) return;
+    const img = slots[slot];
+    const next = queue.shift();
+    queue.push(shown[slot]);
+    shown[slot] = next;
+    const pre = new Image();
+    pre.src = src(next);
+    pre.decode().catch(() => {}).then(() => {
+      img.classList.add("out");
+      setTimeout(() => { img.src = pre.src; img.classList.remove("out"); }, 800);
+    });
+    slot = (slot + 1) % slots.length;
+  }, 3000);
+}
+
 renderProgram();
 heroNetwork();
+heroPhotos();
