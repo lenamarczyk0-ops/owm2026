@@ -183,6 +183,22 @@ h1 {
 .place-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .place iframe { width: 100%; height: 380px; border: 0; border-radius: var(--radius); }
 
+/* signup */
+.nav a.nav-cta { background: var(--cyan); color: var(--navy-deep); opacity: 1; padding: 4px 16px; border-radius: 999px; }
+.nav a.nav-cta:hover { color: var(--navy-deep); background: #fff; }
+.signup { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; background: #fff; border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); }
+.signup-lead { font-size: 19px; margin-top: 0; }
+.signup ul { padding-left: 20px; margin: 0 0 26px; }
+.signup li { margin: 4px 0; }
+.btn.big { font-size: 17px; padding: 16px 30px; }
+.signup .small { font-size: 14px; color: var(--muted); margin-bottom: 0; }
+.signup-courses { display: grid; gap: 16px; }
+.signup-courses .course { padding: 24px 28px; }
+.signup-courses .course:hover { transform: none; }
+.signup-courses .num { font-size: 30px; }
+.signup-courses .course .num::after { width: 80px; }
+.signup-courses h3 { font-size: 18px; margin: 8px 0 0; }
+
 /* partners */
 .logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 60px; background: #fff; border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); }
 .logos img { max-height: 90px; width: auto; }
@@ -191,7 +207,7 @@ h1 {
 .footer p { margin: 4px 0; }
 
 @media (max-width: 980px) {
-  .hero-grid, .place-grid { grid-template-columns: 1fr; }
+  .hero-grid, .place-grid, .signup { grid-template-columns: 1fr; }
   .poster { max-width: 420px; margin-inline: auto; }
   .people { grid-template-columns: repeat(2, 1fr); }
 }
@@ -204,6 +220,8 @@ h1 {
   .hero-facts { grid-template-columns: 1fr; }
   .program-list li { grid-template-columns: 1fr; gap: 4px; }
   .lead { flex-direction: column; text-align: center; }
+  .signup { padding: 26px; }
+  .nav a.nav-cta { border-radius: 0; padding: 14px 20px; }
   .section { padding: 56px 0; }
 }
 @media (max-width: 460px) {
