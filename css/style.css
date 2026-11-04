@@ -126,22 +126,30 @@ h1 {
 .btn:hover { transform: translateY(-2px); }
 .btn.primary { background: var(--cyan); color: var(--navy-deep); }
 .btn.ghost { border: 2px solid rgba(255, 255, 255, .6); color: #fff; }
-.hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; }
-.hero-side { position: relative; height: 540px; }
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr; column-gap: 48px; align-items: center;
+  grid-template-areas: "title side" "facts courses" "count count" "cta cta";
+}
+.hero-title { grid-area: title; }
+.hero-side { grid-area: side; position: relative; height: 100%; min-height: 360px; }
+.hero-facts { grid-area: facts; }
+.hero-courses { grid-area: courses; }
+.hero-count { grid-area: count; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; margin-top: 26px; }
+.hero-count .countdown { margin-top: 0; }
+.hero-grid .cta { grid-area: cta; }
 .hp {
   position: absolute; object-fit: cover; border-radius: 18px;
   border: 4px solid rgba(255, 255, 255, .9);
   box-shadow: 0 24px 50px rgba(0, 0, 0, .45);
   animation: hp-float 9s ease-in-out infinite alternate;
 }
-.hp1 { width: 64%; aspect-ratio: 3 / 2; top: 0; right: 0; transform: rotate(3deg); }
-.hp2 { width: 54%; aspect-ratio: 3 / 2; top: 26%; left: 0; transform: rotate(-4deg); animation-delay: -3s; z-index: 1; }
-.hp3 { width: 52%; aspect-ratio: 3 / 2; top: 48%; right: 2%; transform: rotate(2deg); animation-delay: -6s; }
+.hp1 { width: 58%; aspect-ratio: 3 / 2; top: 0; right: 0; transform: rotate(3deg); }
+.hp2 { width: 50%; aspect-ratio: 3 / 2; top: 22%; left: 0; transform: rotate(-4deg); animation-delay: -3s; z-index: 1; }
+.hp3 { width: 48%; aspect-ratio: 3 / 2; bottom: 0; right: 10%; transform: rotate(2deg); animation-delay: -6s; }
 @keyframes hp-float { to { translate: 0 -12px; } }
 .hp { transition: opacity .8s ease, filter .8s ease; }
 .hp.out { opacity: 0; filter: blur(6px); }
 .live-badge {
-  position: absolute; z-index: 3; top: 4%; left: 6%;
   display: inline-flex; align-items: center; gap: 10px;
   padding: 9px 16px 9px 12px; border-radius: 999px;
   background: #fff; color: var(--navy-deep); text-decoration: none;
@@ -151,7 +159,7 @@ h1 {
 }
 .live-badge i { width: 10px; height: 10px; border-radius: 50%; background: #f0506e; animation: live-pulse 1.6s ease-out infinite; }
 @keyframes live-pulse { 0% { box-shadow: 0 0 0 0 rgba(240, 80, 110, .7); } 100% { box-shadow: 0 0 0 12px rgba(240, 80, 110, 0); } }
-.hero-courses { position: absolute; z-index: 2; left: -4%; bottom: -2%; width: 74%; display: grid; gap: 12px; }
+.hero-courses { display: grid; gap: 12px; }
 .hc {
   --c: var(--green);
   position: relative; overflow: hidden;
@@ -164,7 +172,7 @@ h1 {
   backdrop-filter: blur(10px);
   transition: transform .25s ease, box-shadow .25s ease;
 }
-.hc.c02 { --c: #285abe; margin-left: 10%; }
+.hc.c02 { --c: #285abe; }
 .hc::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, .22) 50%, transparent 70%);
@@ -316,8 +324,10 @@ h1 {
 @media (max-width: 980px) {
   .place-grid, .signup { grid-template-columns: 1fr; }
   .people { grid-template-columns: repeat(2, 1fr); }
-  .hero-grid { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; grid-template-areas: "title" "facts" "courses" "count" "cta"; }
   .hero-side { display: none; }
+  .hero-courses { margin-top: 16px; }
+  .hero-count { flex-direction: column; align-items: flex-start; gap: 16px; }
 }
 @media (max-width: 720px) {
   .menu-btn { display: block; }
