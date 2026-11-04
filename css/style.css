@@ -153,6 +153,31 @@ h1 {
 .lead h3 { font-size: 30px; }
 .lead .sig { margin: 6px 0 0; font-style: italic; opacity: .85; }
 
+/* 2025 photo strip */
+.memories { padding: 0 0 70px; }
+.memories-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.memories-head h2 { margin-bottom: 20px; }
+.memories-head p { margin: 0 0 20px; color: var(--muted); font-weight: 600; }
+.strip {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.strip-track { display: flex; gap: 12px; width: max-content; animation: strip-scroll 70s linear infinite; }
+.strip:hover .strip-track { animation-play-state: paused; }
+.strip-track img { height: 180px; width: 270px; object-fit: cover; border-radius: 14px; flex: none; }
+@keyframes strip-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 6px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .strip { overflow-x: auto; }
+  .strip-track { animation: none; }
+}
+@media (max-width: 720px) {
+  .strip-track img { height: 130px; width: 195px; }
+}
+
 /* program */
 .program { background: #fff; }
 .course-tabs { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }

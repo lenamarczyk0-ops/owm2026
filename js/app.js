@@ -56,6 +56,11 @@ document.getElementById("people").innerHTML = PEOPLE.filter((p) => p[4]).map(([d
     </div>
   </article>`).join("");
 
+const stripPhotos = Array.from({ length: 16 }, (_, i) =>
+  `<img src="img/2025/${String(i + 1).padStart(2, "0")}.jpg" alt="" loading="lazy" width="270" height="180">`).join("");
+// the track holds two copies so the scroll loops without a seam
+document.getElementById("strip").innerHTML = stripPhotos + stripPhotos;
+
 const nav = document.querySelector(".nav");
 document.querySelector(".menu-btn").addEventListener("click", () => nav.classList.toggle("open"));
 nav.addEventListener("click", (e) => { if (e.target.tagName === "A") nav.classList.remove("open"); });
