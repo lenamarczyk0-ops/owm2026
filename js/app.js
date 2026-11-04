@@ -43,15 +43,10 @@ document.getElementById("day-tabs").addEventListener("click", (e) => {
   renderProgram();
 });
 
-function initials(name) {
-  return name.split(/[\s-]+/).map((p) => p[0]).slice(0, 2).join("");
-}
-
-document.getElementById("people").innerHTML = PEOPLE.map(([deg, name, desc, courses, img]) => `
+document.getElementById("people").innerHTML = PEOPLE.filter((p) => p[4]).map(([deg, name, desc, courses, img]) => `
   <article class="person">
     <div class="photo">
-      ${img ? `<img src="img/prelegenci/${img}.jpg" alt="${esc(name)}" loading="lazy">`
-            : `<span class="initials">${initials(name)}</span>`}
+      <img src="img/prelegenci/${img}.jpg" alt="${esc(name)}" loading="lazy">
       <div class="chips">${[...courses].map((c) => `<span class="chip c0${c}">0${c}</span>`).join("")}</div>
     </div>
     <div class="body">

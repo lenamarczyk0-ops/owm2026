@@ -114,7 +114,7 @@ const PEOPLE = [
   ["lek.", "Bartłomiej Kazek", "Dostępy żywieniowe, żywienie pozajelitowe", "1", ""],
   ["lek.", "Artur Kurzeja", "Dostęp żywieniowy pozajelitowy", "1", ""],
   ["lek.", "Michał Krasowski", "Rehabilitacja ruchowa przyłóżkowa", "12", ""],
-  ["dr n. med.", "Beata Kowalska-Krochmal", "Pobieranie i ocena badań mikrobiologicznych", "12", ""],
+  ["dr n. med.", "Beata Kowalska-Krochmal", "Pobieranie i ocena badań mikrobiologicznych", "12", "kowalska-krochmal"],
   ["mgr", "Sonia Nowak", "Powikłania żywienia dojelitowego", "1", ""],
   ["mgr", "Lidia Haliniak", "Żywienie dojelitowe i pozajelitowe w praktyce", "1", ""],
   ["mgr", "Małgorzata Konachiewicz", "Organizacja i dokumentacja leczenia, kontrola NFZ", "1", ""],
