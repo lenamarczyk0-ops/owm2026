@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>XVII Opolskie Warsztaty Medyczne · 26–27 listopada 2026 · Krapkowice</title>
+  <meta name="description" content="XVII Opolskie Warsztaty Medyczne, 26–27 listopada 2026, Starostwo Powiatowe w Krapkowicach. Kursy: leczenie żywieniowe dojelitowe i pozajelitowe w warunkach domowych oraz leczenie ran przewlekłych.">
+  <meta property="og:title" content="XVII Opolskie Warsztaty Medyczne 2026">
+  <meta property="og:description" content="26–27 listopada 2026 · Starostwo Powiatowe w Krapkowicach">
+  <meta property="og:image" content="https://owm2026.pl/img/og.jpg">
+  <meta property="og:url" content="https://owm2026.pl/">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#start"><span>XVII</span> OWM 2026</a>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+    <nav class="nav">
+      <a href="#kursy">Kursy</a>
+      <a href="#program">Program</a>
+      <a href="#wykladowcy">Wykładowcy</a>
+      <a href="#miejsce">Miejsce</a>
+      <a href="#partnerzy">Partnerzy</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="start">
+    <div class="wrap hero-grid">
+      <div>
+        <h1><span class="xvii">XVII</span>Opolskie<br>Warsztaty<br>Medyczne</h1>
+        <div class="hero-line"></div>
+        <div class="hero-facts">
+          <div class="date-box">
+            <small>czwartek – piątek</small>
+            <strong>26–27</strong>
+            <span>listopada 2026</span>
+          </div>
+          <div class="place-box">
+            <small>Miejsce</small>
+            <strong>Starostwo Powiatowe w Krapkowicach</strong>
+            <span>ul. Kilińskiego 1</span>
+          </div>
+        </div>
+        <div id="countdown" class="countdown"></div>
+        <div class="cta">
+          <a class="btn primary" href="#program">Zobacz program</a>
+          <a class="btn ghost" href="program-owm2026.pdf" download>Program w PDF</a>
+        </div>
+      </div>
+      <img class="poster" src="img/plakat.jpg" alt="Plakat XVII Opolskich Warsztatów Medycznych 2026" width="550" height="778">
+    </div>
+  </section>
+
+  <section id="kursy" class="wrap section">
+    <h2>Kursy</h2>
+    <div class="courses">
+      <a class="course c01" href="#program" data-go="01">
+        <span class="num">01</span>
+        <h3>Leczenie żywieniowe dojelitowe i pozajelitowe w warunkach domowych</h3>
+        <p>Kwalifikacja, dostępy żywieniowe, wyliczanie mieszanin, powikłania, dokumentacja i kontrola NFZ. Zajęcia praktyczne na fantomach, w pracowni endoskopowej i na bloku operacyjnym.</p>
+      </a>
+      <a class="course c02" href="#program" data-go="02">
+        <span class="num">02</span>
+        <h3>Podstawowy kurs leczenia ran przewlekłych</h3>
+        <p>Oczyszczanie ran, kompresjoterapia, dobór opatrunków, terapia podciśnieniowa, zespół stopy cukrzycowej. Zajęcia praktyczne na Oddziale Chirurgii Ogólnej.</p>
+      </a>
+    </div>
+    <div class="lead">
+      <img src="img/prelegenci/krasowski.jpg" alt="dr n. med. Grzegorz Krasowski">
+      <div>
+        <small>Kierownik naukowy</small>
+        <p class="deg">dr n. med.</p>
+        <h3>Grzegorz Krasowski</h3>
+        <p class="sig">Serdecznie zapraszam!</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="program" class="section program" data-course="01">
+    <div class="wrap">
+      <h2>Program</h2>
+      <div id="course-tabs" class="course-tabs" role="tablist">
+        <button role="tab" data-course="01"><span class="chip c01">01</span> Leczenie żywieniowe</button>
+        <button role="tab" data-course="02"><span class="chip c02">02</span> Leczenie ran przewlekłych</button>
+      </div>
+      <div id="day-tabs" class="day-tabs" role="tablist"></div>
+      <ol id="program-list" class="program-list"></ol>
+      <p class="note">Organizator zastrzega sobie prawo do zmian w programie. <a href="program-owm2026.pdf" download>Pobierz program w PDF</a>.</p>
+    </div>
+  </section>
+
+  <section id="wykladowcy" class="wrap section">
+    <h2>Wykładowcy</h2>
+    <div class="legend"><span class="chip c01">01</span> leczenie żywieniowe <span class="chip c02">02</span> leczenie ran</div>
+    <div id="people" class="people"></div>
+  </section>
+
+  <section id="miejsce" class="section place">
+    <div class="wrap place-grid">
+      <div>
+        <h2>Miejsce</h2>
+        <h3>Starostwo Powiatowe w Krapkowicach</h3>
+        <p>ul. Kilińskiego 1, 47-300 Krapkowice</p>
+        <p>Wykłady odbywają się w Sali Konferencyjnej i Sali Konferencyjnej 2 Starostwa. Część zajęć praktycznych prowadzona jest w szpitalu: w Gabinecie Pielęgniarki Naczelnej, na Oddziale Chirurgii Ogólnej, w Pracowni endoskopowej i na Bloku operacyjnym.</p>
+        <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Starostwo+Powiatowe+Krapkowice+Kili%C5%84skiego+1" target="_blank" rel="noopener">Otwórz w Mapach Google</a>
+      </div>
+      <iframe title="Mapa dojazdu" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q=Starostwo%20Powiatowe%20Krapkowice%20Kili%C5%84skiego%201&z=16&output=embed"></iframe>
+    </div>
+  </section>
+
+  <section id="partnerzy" class="wrap section">
+    <h2>Organizatorzy i partnerzy</h2>
+    <div class="logos">
+      <img src="img/logo/kcz.png" alt="KCZ">
+      <img src="img/logo/nutrikon.png" alt="Nutrikon Sp. z o.o.">
+      <img src="img/logo/powiat_krapkowicki.png" alt="Powiat Krapkowicki">
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p><strong>XVII Opolskie Warsztaty Medyczne</strong> · 26–27 listopada 2026 · Krapkowice</p>
+      <p>www.owm2026.pl</p>
+    </div>
+  </footer>
+
+  <script src="js/program.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.querySelectorAll("[data-go]").forEach((a) => a.addEventListener("click", () => {
+      document.querySelector(`#course-tabs [data-course="${a.dataset.go}"]`).click();
+    }));
+  </script>
+</body>
+</html>
