@@ -273,6 +273,30 @@ h1 {
 .program-list .where { margin: 2px 0 0; font-size: 14px; color: var(--muted); }
 .program-list li.break { background: #fff7e6; border-left-color: #f0a83c !important; color: #8a5a10; font-weight: 600; }
 .note { margin-top: 22px; color: var(--muted); font-size: 14px; }
+.downloads { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 30px; scroll-margin-top: 90px; }
+.dl {
+  --c: var(--green);
+  display: grid; grid-template-columns: 190px 1fr; gap: 26px; align-items: center;
+  padding: 26px; border-radius: var(--radius); text-decoration: none; color: var(--navy);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--c) 10%, #fff), #fff 70%);
+  border: 1px solid color-mix(in srgb, var(--c) 25%, #fff);
+  transition: transform .2s, box-shadow .2s;
+}
+.dl.c02 { --c: #285abe; }
+.dl:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(10, 30, 72, .12); }
+.dl-pages { position: relative; height: 240px; }
+.dl-pages img {
+  position: absolute; width: 150px; aspect-ratio: 210 / 297; object-fit: cover;
+  border-radius: 6px; box-shadow: 0 10px 24px rgba(10, 30, 72, .25); transition: transform .3s;
+}
+.dl-pages img:first-child { left: 34px; top: 0; transform: rotate(6deg); }
+.dl-pages img:last-child { left: 0; top: 18px; transform: rotate(-4deg); }
+.dl:hover .dl-pages img:first-child { transform: rotate(10deg) translateX(10px); }
+.dl:hover .dl-pages img:last-child { transform: rotate(-7deg) translateX(-6px); }
+.dl-text { display: grid; gap: 10px; justify-items: start; }
+.dl-text strong { font-family: Poppins, sans-serif; font-size: 19px; line-height: 1.3; }
+.dl-text small { color: var(--muted); font-size: 14px; }
+.dl-btn { margin-top: 6px; padding: 10px 20px; border-radius: 999px; background: var(--c); color: #fff; font-weight: 700; font-size: 15px; }
 
 /* speakers */
 .chip { display: inline-block; font-family: Poppins, sans-serif; font-size: 12px; font-weight: 700; color: #fff; border-radius: 999px; padding: 2px 10px; }
@@ -324,6 +348,7 @@ h1 {
 @media (max-width: 980px) {
   .place-grid, .signup { grid-template-columns: 1fr; }
   .people { grid-template-columns: repeat(2, 1fr); }
+  .downloads { grid-template-columns: 1fr; }
   .hero-grid { grid-template-columns: 1fr; grid-template-areas: "title" "facts" "courses" "count" "cta"; }
   .hero-side { display: none; }
   .hero-courses { margin-top: 16px; }
@@ -344,4 +369,7 @@ h1 {
 }
 @media (max-width: 460px) {
   .people { grid-template-columns: 1fr; }
+  .dl { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .dl-pages { width: 190px; }
+  .dl-text { justify-items: center; }
 }
