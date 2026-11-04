@@ -72,4 +72,68 @@ function tick() {
 tick();
 setInterval(tick, 30000);
 
+function heroNetwork() {
+  const canvas = document.getElementById("hero-net");
+  if (!canvas || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const ctx = canvas.getContext("2d");
+  const LINK = 140;
+  let w, h, dots;
+
+  function resize() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    w = canvas.clientWidth;
+    h = canvas.clientHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const n = Math.round(Math.min(70, (w * h) / 16000));
+    dots = Array.from({ length: n }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r: 1 + Math.random() * 1.8,
+    }));
+  }
+
+  let visible = true;
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(canvas);
+
+  function frame() {
+    requestAnimationFrame(frame);
+    if (!visible || document.hidden) return;
+    ctx.clearRect(0, 0, w, h);
+    for (const d of dots) {
+      d.x += d.vx;
+      d.y += d.vy;
+      if (d.x < -20) d.x = w + 20; else if (d.x > w + 20) d.x = -20;
+      if (d.y < -20) d.y = h + 20; else if (d.y > h + 20) d.y = -20;
+    }
+    for (let i = 0; i < dots.length; i++) {
+      for (let j = i + 1; j < dots.length; j++) {
+        const a = dots[i], b = dots[j];
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+        if (dist < LINK) {
+          ctx.strokeStyle = `rgba(150, 220, 255, ${0.22 * (1 - dist / LINK)})`;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.fillStyle = "rgba(190, 240, 255, .7)";
+    for (const d of dots) {
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  addEventListener("resize", resize);
+  resize();
+  frame();
+}
+
 renderProgram();
+heroNetwork();

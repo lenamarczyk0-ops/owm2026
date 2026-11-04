@@ -61,11 +61,38 @@ h2::after {
 
 /* hero */
 .hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
   color: #fff;
-  background:
-    linear-gradient(180deg, rgba(6, 20, 52, .55), rgba(6, 20, 52, .85)),
-    url("../img/tlo.jpg") center / cover;
+  background: var(--navy-deep);
   padding: 90px 0 110px;
+}
+.hero::before, .hero::after { content: ""; position: absolute; inset: 0; z-index: -2; }
+.hero::before {
+  inset: -6%;
+  background: url("../img/tlo.jpg") center / cover;
+  animation: hero-drift 40s ease-in-out infinite alternate;
+}
+.hero::after {
+  background:
+    radial-gradient(60% 80% at 85% 20%, rgba(64, 200, 240, .18), transparent 60%),
+    radial-gradient(50% 70% at 10% 90%, rgba(240, 80, 110, .12), transparent 60%),
+    linear-gradient(180deg, rgba(6, 20, 52, .55), rgba(6, 20, 52, .88));
+  animation: hero-glow 14s ease-in-out infinite alternate;
+}
+#hero-net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+@keyframes hero-drift {
+  from { transform: scale(1) translate(0, 0); }
+  to { transform: scale(1.08) translate(-2%, -1.5%); }
+}
+@keyframes hero-glow {
+  from { opacity: .85; }
+  to { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero::before, .hero::after { animation: none; }
+  #hero-net { display: none; }
 }
 h1 {
   font-family: Poppins, sans-serif;
